@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+        * {
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: Roboto;
+        }
+        
+        /* width */
+        ::-webkit-scrollbar { width: 8px; }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey; 
+            border-radius: 10px;
+        }
+        
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: gray; 
+            border-radius: 10px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b30000; 
+        }
+
+        body {
+            height: 100vh;
+            max-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #555;
+        }
+        .container {
+            width: 700px;
+            height: 500px;
+            display: flex;
+            gap: 30px;
+        }
+
+        /* Left Side */
+
+        .left-side {
+            width: 220px;
+            padding: 18px;
+        }
+        .left-side .header {
+            text-align: center;
+        }
+        .my-name {
+            font-size: 22px;
+        }
+        .left-side .logo {
+            width: 100%;
+            border-radius: 50%;
+        }
+        .left-side .info {
+            font-size: 14px;
+            color: rgb(117, 117, 213);
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: rgb(193, 234, 255);
+        }
+        .left-side .bottom { 
+            text-align: center;
+            margin-top: auto; 
+        }
+        .left-side .bottom a {
+            color: red;
+        }
+        /* Left Side End */
+
+        /* Right Side */
+        .right-side {
+            height: 100%;
+            overflow-y: scroll;
+        }
+
+        /* COMMON */
+        .shadow-dark { box-shadow: 0px 0px 10px rgba(0, 0, 0, .3); }
+        .shadow-light { box-shadow: 0px 0px 2px rgba(0, 0, 0, .3);}
+        .p-1 { padding: 6px}
+        .p-2 { padding: 10px}
+        .p-3 { padding: 18px;}
+        .flex {display: flex;}
+        .column {flex-direction: column;}
+        .flex-wrap { flex-wrap: wrap; }
+        .gap-1 { gap: 6px}
+        .gap-2 { gap: 10px}
+        .gap-3 { gap: 18px}
+        .rounded { border-radius: 10px; }
+        .text-1 {font-size: 14px}
+        .text-gray { color: #666 }
+        .line-wide { line-height: 20px; word-spacing: 3px; letter-spacing: 1px; }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+
+        <div class="left-side shadow-dark rounded flex column gap-3">
+            <div class="header flex column gap-1">
+                <img class="logo" src="https://pps.whatsapp.net/v/t61.24694-24/301334764_1488304204949062_8711172063267308451_n.jpg?ccb=11-4&oh=01_AVyzP0P37EEgPwCozhncb37LrbBrEaK3Zk0jTCyWxjMnfw&oe=63375499" />
+                <h3 class="my-name">Parneet Kaur</h3>
+            </div>
+            <div class="info flex column gap-2">
+                <div>parneetkaur@gmail.com</div>
+                <div>+14379845121 </div>
+                <div>40 Tamworth Ct., Brampton </div>
+            </div>
+            <div class="bottom">
+                <a>Download Resume</a>
+            </div>
+        </div>
+        <div class="right-side shadow-dark rounded flex column gap-3 p-3">
+            <!-- Summry -->
+            <div class="section flex column gap-1">
+                <h2 class="section-title">About Me</h2>
+                <div class="section-content text-1 line-wide">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+                </div>
+            </div>
+            <!-- Education -->
+            <div class="flex column gap-2">
+                <h2>Education</h2>
+                <div class="section-content">
+                    <div class="education flex column gap-2">
+                        <div class="shadow-light p-3 flex gap-1 column rounded">
+                            <h4>Bachelors of Computer Application</h4>
+                            <p class="text-1 text-gray">Lambton College</p>
+                            <p class="text-1 text-gray">Toronto, Ontario, Canda</p>
+                        </div>
+                        <div class="shadow-light p-3 flex gap-1 column rounded">
+                            <h4>Bachelors of Computer Application</h4>
+                            <p class="text-1 text-gray">Lambton College</p>
+                            <p class="text-1 text-gray">Toronto, Ontario, Canda</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Skills -->
+            <div class="flex column gap-2">
+                <h2>Skills</h2>
+                <div class="section-content">
+                    <div class="skills flex gap-2 flex-wrap">
+                        <div class="shadow-light p-1">HTML</div>
+                        <div class="shadow-light p-1">CSS</div>
+                        <div class="shadow-light p-1">JS</div>
+                        <div class="shadow-light p-1">Java</div>
+                        <div class="shadow-light p-1">JS</div>
+                        <div class="shadow-light p-1">JS</div>
+                        <div class="shadow-light p-1">JS</div>
+                        <div class="shadow-light p-1">JS</div>
+                        <div class="shadow-light p-1">JS</div>
+                        <div class="shadow-light p-1">JS</div>
+                        <div class="shadow-light p-1">JS</div>
+                        <div class="shadow-light p-1">JS</div>
+                        <div class="shadow-light p-1">JS</div>
+                        <div class="shadow-light p-1">JS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .main-box {
+        width: 500px;
+        height: 500px;
+        border:5px solid black;
+        /* position:relative; */
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 10px;
+        overflow-y: auto;
+    }
+
+    .main-box > div , .main-box > h2{
+        flex-shrink: 0;
+    }
+
+
+    h1,h2 {
+        text-align: center;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    
+    .box{
+        border:2px solid khaki;
+        /* position:absolute; */
+    }
+    .scroll {
+        display: flex;
+        flex-direction: row;
+        overflow:auto;
+        gap: 10px;
+        
+        
+    }
+    .scroll > .box {
+        flex-shrink: 0;
+        width:22%;
+        height: 100px;
+    }
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap:10px;
+    }
+    .gallery > .box {
+        flex-grow: 1;
+        width:30%;
+        height: 100px;
+    }
+
+    .arrows {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(53, 112, 164, 0.13);
+    }
+    .relative {
+        position: relative;
+    }
+    .left {
+        left: 2%;
+        top: 50%;
+        transform: translateY(-60%);
+        position: absolute;
+    }
+    .right {
+        right: 2%;
+        top: 50%;
+        transform: translateY(-60%);
+        position: absolute;
+    }
+</style>
+<body>
+    <div class="main-box">
+        <div class="header">
+            <h1>IMAGE GALLERY 1</h1>
+            
+        </div>
+        <div class="scroll ">
+            <div class="box">b1</div>
+            <div class="box">b2</div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+        <h2 style="text-align:left;">Buttons</h2>
+        <div class="relative">
+            <button class="left"> < </button>
+            <button class="right"> > </button>
+            <div class="scroll">
+                <div class="box">b1</div>
+                <div class="box">b2</div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+            </div>
+        </div>
+        <h2>IMAGE GALLERY 2</h2>
+        <div class="gallery">
+            <div class="box">b1</div>
+            <div class="box">b2</div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box">b2</div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+
+    </div>
+
+</body>
+</html>

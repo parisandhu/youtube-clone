@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items:  center;
+
+            height: 500px;
+            width: 500px;
+            background-color: #ccc;
+            margin: auto;
+        }
+        .outer {
+            min-width: 200px;
+            min-height: 200px;
+            border: 5px solid red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .buttons {
+            margin: 30px auto;
+            max-width: 80%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            width: fit-content;
+            padding: 80px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.1);
+        }
+        .button {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            padding: 20px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            text-transform: uppercase;
+            transition: all 0.3s, translateX 1s;
+            box-shadow: 0px 0px 20px rgb(0, 0, 0, 0.2);
+        }
+        .button:hover {
+            cursor: pointer;
+            box-shadow: 0px 10px 20px rgb(0, 0, 0, 0.4);
+            transform: scale(1.05);
+            transform: translate(10px);
+        }
+        .button:active {
+            box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.4);
+        }
+        .button-black {
+            color: white;
+            background-color: black;
+        }
+        .button-black:hover {
+            color: black;
+            background-color: white;
+            box-shadow: 0px 10px 20px rgb(0, 0, 0, 0.4);
+            transform: scale(1.05);
+            transform: translate(10px)
+        }
+        .button-white {
+            color: black;
+            background-color: white;
+            box-shadow: 0px 10px 20px rgb(0, 0, 0, 0.2);
+        }
+        .button-white:hover {
+            color: white;
+            box-shadow: none;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="outer">outer</div>
+    </div>
+    <div class="buttons">
+        <button class="button button-white">Yes</button>
+        <button class="button button-black">No</button>
+        <button class="button button-white">Yes</button>
+        <button class="button button-black">No</button>
+        <button class="button button-white">Yes</button>
+        <button class="button button-black">No</button>
+        <button class="button button-white">Yes</button>
+        <button class="button button-black">No</button>
+        <button class="button button-white">Yes</button>
+        <button class="button button-black">No</button>
+        <button class="button button-white">Yes</button>
+        <button class="button button-black">No</button>
+        <button class="button button-white">Yes</button>
+        <button class="button button-black">No</button>
+        <button class="button button-white">Yes</button>
+    </div>
+</body>
+</html>

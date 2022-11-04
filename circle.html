@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle</title>
+</head>
+<style>
+    .box {
+        border: 5px solid rgb(178, 63, 63);
+        width: 500px;
+        height: 500px;
+        position: relative;
+        margin-top: 20%;
+        margin-left: 20%;
+        margin-right: 20%;
+        background-color: #7aa1a1;
+    }
+    .circle {
+        border: 5px solid rgb(190, 92, 92);
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        background-color: #a4927a;
+    }
+    .box1 {
+        position: absolute ;
+        top: 0px;
+        left: 5px;
+        font-size: 10px;
+        font-family: sans-serif;
+        font-weight: bold;
+    }
+    .content {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+    .margin {
+        margin: 30px;
+    }
+    .checkbox {
+        margin: 20px;
+    }
+
+</style>
+<body>
+    <div class="box">
+        <div class=" content">
+            <h1 class="margin">Parneet Kaur</h1>
+            <p class="margin">Hobbies: Dancing,Singing</p>
+        <div class="circle">
+            <p class="box1">My practice page</p>
+        </div>
+        </div>
+        <input type="checkbox" id="male" />
+        <label for="male">Male</label>
+        <input type="checkbox" id="female" />
+        <label for="female">Female</label>
+        <input type="submit" class="checkbox content" ></input>
+    </div>
+</body>
+</html>

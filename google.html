@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRID</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        body {
+            display: flex;
+            height: 100vh;
+        }
+        .container {
+            margin: 100px auto;
+            width: 70%;
+            min-width: 450px;
+            max-width: 700px;
+            border-radius: 12px;
+            padding: 12px;
+        }
+        .grid { 
+            display: grid;
+            height: 100%;
+            grid-template-rows: auto 1fr auto;
+            grid-template-columns: 1fr;
+            /* justify-content: space-evenly;
+            align-content: space-evenly; */
+            justify-items: stretch;
+            align-items: stretch;
+        }
+        .section1 {
+            display: grid;
+            align-items: center;
+            justify-content: center;
+        }
+        .footer {
+            display: grid;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav {
+            height: fit-content;
+            display: grid;
+            align-items: stretch;
+            justify-content: stretch;
+            box-shadow: 0px 0px 5px #0004;
+            border-radius: 16px;
+        }
+        .search-div {
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: auto 1fr auto auto;
+            align-items: stretch;
+        }
+        .search-input {
+            border: none;
+            font-size: 16px;
+        }
+        .search-input:focus, .search-input:active {
+            border: none;
+            box-shadow: none;
+            outline: none;
+        }
+
+
+        .modal {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #0005;
+            backdrop-filter: blur(4px);
+            z-index: 50;
+            display: none;
+        }
+
+        .modal .dialog {
+            min-width: 450px;
+            min-height: 200px;
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            animation: forwards .5s opacity;
+        }
+
+        
+        .icon {
+            width: 24px;
+            color: rgb(99, 99, 251);
+        }
+        .flex { display: flex;}
+        .col {flex-direction: column;}
+        .gap-1 { gap: 6px;}
+        .gap-2 { gap: 12px; }
+        .gap-3 { gap: 16px; }
+        .gap-4 { gap: 24px; }
+        .p-2 { padding: 12px;}
+        .p-3 { padding: 16px;}
+        .items-center { align-items: center;}
+        .hidden {
+            display: none;
+        }
+
+         /* Common */
+         .flex { display: flex; visibility: visible;}
+        .grow {flex-grow: 1;}
+        .row {flex-direction: row; }
+        .col { flex-direction: column; }
+        .nowrap {flex-wrap: nowrap;}
+        .gap-1 { gap: 6px; }
+        .gap-2 { gap: 12px; }
+        .gap-3 { gap: 18px; }
+        .gap-4 { gap: 24px; }
+        .justify-between { justify-content: space-between; }
+        .items-center { align-items: center;}
+        .justify-center { justify-content: center;}
+        .shadow { box-shadow: 0px 0px 200px #0003; }
+        .p-1 { padding: 6px; }
+        .p-2 { padding: 12px; }
+        .p-3 { padding: 18px; }
+        .p-4 { padding: 24px; }
+        .p-5 { padding: 32px; }
+        .icon-medium { width: 36px; }
+        .icon-small { width: 24px; }
+        .icon-extra-small { width: 12px;}
+        .icon-large { width: 60px; }
+        .bg-gray { background-color: rgb(64, 64, 64);}
+        .text-white { color: white;}
+        .hidden { display: none;}
+        .pointer { cursor: pointer; }
+        .rounded { border-radius: 8px; }
+        .rounded-2 { border-radius: 12px;}
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            background-color: rgb(64, 64, 64);
+            color: white;
+            cursor: pointer;
+        }
+        .btn:hover { filter: brightness(115%); }
+        .btn-blue {
+            background-color: rgb(38, 38, 226);
+        }
+        .btn-green {
+            background-color: rgb(0, 119, 0);
+        }
+        .btn-red {
+            background-color: rgb(119, 0, 0);
+        }
+        .btn-large {
+            padding: 12px 24px;
+            font-size: 18px;
+        }
+
+        /* The animation code */
+        @keyframes zoom {
+            from {scale: 0.5; translate: 0px -100px;}
+            to {scale: 1; translate: 0px;}
+        }
+        /* The animation code */
+        @keyframes opacity {
+            from {opacity: 0}
+            to {opacity: 1;}
+        }
+    </style>
+
+    <!-- Javascript -->
+    <script>
+        function addClass(id, className) {
+            const div = document.getElementById(id);
+            div.classList.add(className);
+        }
+        function removeClass(id, className) {
+            const div = document.getElementById(id);
+            div.classList.remove(className);
+        }
+        function toggleClass(id, className) {
+            const div = document.getElementById(id);
+            if (div.classList.contains(className)) {
+                div.classList.remove(className);
+            }else {
+                div.classList.add(className);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="grid">
+            <div class="nav p-3 gap-4" onmouseover="removeClass('searchSuggesions', 'hidden')" onmouseout="addClass('searchSuggesions', 'hidden')">
+                <div class="search-div gap-3">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="gray">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                    </svg>
+                    <!-- onblur="addClass('searchSuggesions', 'hidden')" -->
+                    <input class="search-input" type="text" placeholder="Search..."  />
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
+                    </svg>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                    </svg>
+                </div>
+                <div class="flex col gap-3 hidden" id="searchSuggesions" style="color: rgb(36, 36, 171);">
+                    <div class="flex items-center row gap-3">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="gray">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        <div class="grow">HTML</div>  
+                        <svg onclick="toggleClass('modal2', 'flex')" class="icon pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>                      
+                    </div>
+                    <div class="flex items-center row gap-3">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="gray">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        <div class="grow">CSS</div>  
+                        <svg onclick="toggleClass('modal2', 'flex')" class="icon pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>                      
+                    </div>
+                    <div class="flex items-center row gap-3">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="gray">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        <div class="grow">Javascript</div>  
+                        <svg onclick="toggleClass('modal2', 'flex')" class="icon pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div class="modal justify-center items-center" id="modal2">
+        <div class="dialog flex col shadow" >
+            <header class="p-2 flex row justify-between bg-gray text-white">
+                <div class="flex row gap-2 items-center">
+                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="yellow" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                    </svg>                 
+                    <p>Alert</p>
+                </div>
+                <svg onclick="toggleClass('modal2', 'flex')" class="icon-small pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </header>
+            <main class="grow p-2">
+                <p>Do you want to delete?</p>
+            </main>
+            <footer class="flex row">
+                <button class="btn btn-red btn-large grow flex items-center justify-center gap-1" onclick="toggleClass('success-modal', 'flex');toggleClass('modal2', 'flex');">
+                    <svg  class="icon-small pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                    </svg>  
+                    Delete
+                </button>
+            </footer>
+        </div>
+    </div>
+    <!-- Modal 3 -->
+    <div class="modal justify-center items-center" id="success-modal">
+        <div class="dialog flex col shadow" >
+            <header class="p-2 flex row justify-between bg-gray text-white">
+                <div class="flex row gap-2 items-center">
+                    <svg class="icon-small pointer"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>           
+                    <p>Success</p>
+                </div>
+                <svg onclick="toggleClass('success-modal', 'flex')" class="icon-small pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </header>
+            <main class="grow p-2">
+                <p>Deleted successfully!</p>
+            </main>
+            <footer class="flex row">
+                <button class="btn btn-green btn-large grow flex items-center justify-center gap-1" onclick="toggleClass('success-modal', 'flex');">
+                    <svg class="icon-small pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+                        </svg>
+                        
+                    Done
+                </button>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
